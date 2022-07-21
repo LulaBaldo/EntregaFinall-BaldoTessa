@@ -1,0 +1,31 @@
+{% extends 'perfilesapp/base.html' %}
+{% load static %} 
+
+{% block tituloPagina %} 
+Tienda
+{% endblock %} 
+
+{% block about %} 
+<div>
+    <p class="justify-content-center">
+        <h1 style="color:white" > 
+            <br>
+            <br>
+            Tienda
+            <br>
+            <br>
+        </h1>
+    </p>
+</div>
+{% endblock %} 
+
+{% block servicios %} 
+<div>
+    <section class="bg-light py-5">
+        <div style="text-align:center">
+            <a href="{% url 'objetos' %}"><button class="btn btn-outline-dark">Productos de Remo</button></a>
+            <a href="{% url 'cursos' %}"><button class="btn btn-outline-dark">Nuestros Cursos</button></a>
+        </div>
+    </section>
+</div>
+{% endblock %} 

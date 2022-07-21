@@ -1,0 +1,47 @@
+{% extends 'perfilesapp/base.html' %}
+{% load static %} 
+
+{% block tituloPagina %} 
+Editar Curso
+{% endblock %} 
+
+{% block about %} 
+<div>
+    <p class="justify-content-center">
+        <br>
+        <br>
+        <h1 style="color:white" > 
+
+            Editar Curso
+
+        </h1>
+        <br>
+        <br>
+    </p>
+</div>
+{% endblock %} 
+
+{% block servicios %} 
+
+
+
+<div style="text-align:center">  
+    <section class="bg-light py-5">
+        <form action="" method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <p>Actividad:   {{form.actividad}} </p>
+            <p>Profesor: {{form.profesor}}</p>
+            <p>Dias: {{form.dias}} </p>
+            <p>Turnos: {{form.turno}}</p>
+            <p>Precio: {{form.precio}}</p>
+            <p>Imagen:  {{form.imagen.label}}
+                {{form.imagen}} </p>
+        
+            <a href="{% url 'cursos' %}"><button class="btn btn-outline-dark">Editar Curso</button></a>
+        </form>
+    </section>
+</div>
+
+{% endblock %} 

@@ -1,0 +1,48 @@
+{% extends 'perfilesapp/base.html' %}
+{% load static %}
+
+{% block tituloPagina %}
+Buscar Socio
+{% endblock %}
+
+{% block servicios %}
+<div class="row gx-5 justify-content-center">
+    <div class="col-lg-6">
+        <p>
+            <h3>Buscar socio:
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="socios" id="" min="0">
+                    <input type="submit" value="Buscar">
+                </form>
+            </h3>
+        </p>
+
+    
+        <h5>Resultados: </h5>
+        <ul class="list-group list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                
+                <b>Nombre del Socio</b>   <!-- Encabezados-->
+                <b>Apellido</b>
+                <b>Edad</b>
+                <b>Email</b>
+                <b>Fecha de Nacimiento</b>
+    
+            </li>
+
+            {% for resultado in socios %}
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                  <span>{{resultado.nombre}}</span>
+                  <span>{{resultado.apellido}}</span>
+                  <span>{{resultado.edad}}</span>
+                  <span>{{resultado.email}}</span>
+                  <span>{{resultado.fechanacimiento}}</span>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

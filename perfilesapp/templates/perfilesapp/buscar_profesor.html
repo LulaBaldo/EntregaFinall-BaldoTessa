@@ -1,0 +1,47 @@
+{% extends 'perfilesapp/base.html' %}
+{% load static %}
+
+{% block tituloPagina %}
+Buscar Instructor
+{% endblock %}
+
+{% block servicios %}
+<div class="row gx-5 justify-content-center">
+    <div class="col-lg-6">
+        <p>
+            <h3>Buscar Instructor:
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="nosotros" id="" min="0">
+                    <input type="submit" value="Buscar">
+                </form>
+            </h3>
+        </p>
+
+    
+        <h5>Resultados: </h5>
+        <ul class="list-group list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    
+                <b>Nombre del profesor</b>   <!-- Encabezados-->
+                <b>Apellido</b>
+                <b>Edad</b>
+                <b>Email</b>
+    
+            </li>
+
+            {% for resultado in profesores %}
+
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <span>{{resultado.nombreprofesor}}</span>
+                    <span>{{resultado.apellidoprofesor}}</span>
+                    <span>{{resultado.edadprofesor}}</span>
+                    <span>{{resultado.emailprofesor}}</span>
+                </li>
+            {% endfor %}
+                
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
